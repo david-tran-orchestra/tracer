@@ -2,6 +2,6 @@ package com.orchestra.tracer.dtos.enums;
 
 public enum TransactionTypeEnum {
 	
-	Search, Complete, AvailAndQuotation, Quote, Book, CancelFees, Cancel, GetDocument, GetBooking;
+	SEARCH, AVAILABLE, BOOKING, GET_DOCS, PRODUCT_INFO, INSURANCE_SEARCH;
 
 }

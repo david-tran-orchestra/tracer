@@ -1,10 +1,10 @@
 package com.orchestra.tracer.dtos.requests.search;
 
+import java.time.Period;
+
 import com.orchestra.tracer.dtos.enums.ErrorCodeEnum;
 import com.orchestra.tracer.dtos.enums.StatusEnum;
 import com.orchestra.tracer.dtos.enums.TypeEnum;
-
-import java.time.Period;
 
 
 public class TraceSearchRequest {
@@ -13,9 +13,9 @@ public class TraceSearchRequest {
 	
 	private boolean technical;
 	
-	private Long producerId;
+	private String producerCode;
 	
-	private Long productId;
+	private String productCode;
 	
 	private String sessionId;
 	
@@ -39,22 +39,6 @@ public class TraceSearchRequest {
 
 	public void setTechnical(boolean technical) {
 		this.technical = technical;
-	}
-
-	public Long getProducerId() {
-		return producerId;
-	}
-
-	public void setProducerId(Long producerId) {
-		this.producerId = producerId;
-	}
-
-	public Long getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Long productId) {
-		this.productId = productId;
 	}
 
 	public String getSessionId() {
@@ -87,6 +71,22 @@ public class TraceSearchRequest {
 
 	public void setErrorCode(ErrorCodeEnum errorCode) {
 		this.errorCode = errorCode;
+	}
+
+	public String getProducerCode() {
+		return producerCode;
+	}
+
+	public void setProducerCode(String producerCode) {
+		this.producerCode = producerCode;
+	}
+
+	public String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
 	}
 	
 	

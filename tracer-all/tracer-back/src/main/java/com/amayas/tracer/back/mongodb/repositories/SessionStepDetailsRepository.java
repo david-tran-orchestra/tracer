@@ -6,4 +6,6 @@ import com.amayas.tracer.back.mongodb.entities.SessionStepDetails;
 
 public interface SessionStepDetailsRepository extends MongoRepository<SessionStepDetails, Long> {
 
+	public SessionStepDetails findById(String id);
+	
 }

@@ -9,7 +9,7 @@ public class DetailsInsertLogRequest extends AbstractInsertLogRequest implements
 	private String logRequest;
 
 	/** the log response. */
-	private String logResponse;
+	private LogResponse logResponse;
 
 	/** The log stack trace. */
 	private String logStackTrace;
@@ -46,11 +46,11 @@ public class DetailsInsertLogRequest extends AbstractInsertLogRequest implements
 		this.logRequest = logRequest;
 	}
 
-	public String getLogResponse() {
+	public LogResponse getLogResponse() {
 		return logResponse;
 	}
 
-	public void setLogResponse(String logResponse) {
+	public void setLogResponse(LogResponse logResponse) {
 		this.logResponse = logResponse;
 	}
 }

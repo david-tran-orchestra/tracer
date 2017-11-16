@@ -1,5 +1,7 @@
 package com.orchestra.tracer.dtos.results;
 
+import java.util.Date;
+
 import com.orchestra.tracer.dtos.Channel;
 import com.orchestra.tracer.dtos.ErrorData;
 import com.orchestra.tracer.dtos.enums.ReservationType;
@@ -9,17 +11,17 @@ import com.orchestra.tracer.dtos.enums.TechTransactionTypeEnum;
 import com.orchestra.tracer.dtos.enums.TransactionTypeEnum;
 import com.orchestra.tracer.dtos.enums.TypeEnum;
 
-import java.util.Date;
-
 public class TraceSessionStepResult {
+	
+	private String id;
+	
+	private String sessionId;
 	
 	private Date date;
 	
 	private TypeEnum type;
 	
 	private SubTypeEnum subType;
-	
-	private TraceSessionStepDetailsResult details;
 	
 	private String sourceCode;
 	
@@ -65,63 +67,40 @@ public class TraceSessionStepResult {
 	
 	private int nbBabies;
 	
-	private String requestLoadUrl;
+	private String detailsId;
 	
-	private String responseLoadUrl;
-	
-	private String stackTraceLoadUrl;
-	
-	private String disoRefToLoadUrl;
-
-	public String getRequestLoadUrl() {
-		return requestLoadUrl;
+	public String getSessionId() {
+		return sessionId;
 	}
 
-	public void setRequestLoadUrl(String requestLoadUrl) {
-		this.requestLoadUrl = requestLoadUrl;
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
 	}
 
-	public String getResponseLoadUrl() {
-		return responseLoadUrl;
-	}
-
-	public void setResponseLoadUrl(String responseLoadUrl) {
-		this.responseLoadUrl = responseLoadUrl;
-	}
-
-	public String getStackTraceLoadUrl() {
-		return stackTraceLoadUrl;
-	}
-
-	public void setStackTraceLoadUrl(String stackTraceLoadUrl) {
-		this.stackTraceLoadUrl = stackTraceLoadUrl;
-	}
-
-	public String getDisoRefToLoadUrl() {
-		return disoRefToLoadUrl;
-	}
-
-	public void setDisoRefToLoadUrl(String disoRefToLoadUrl) {
-		this.disoRefToLoadUrl = disoRefToLoadUrl;
-	}
-	
 	/**
 	 * Session steps may contain other session steps
 	 * according to request type hierarchy
 	 * */
 	private TraceSessionStepResult[] sessionSteps;
+	
+	public String getDetailsId() {
+		return detailsId;
+	}
+
+	public void setDetailsId(String detailsId) {
+		this.detailsId = detailsId;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public Date getDate() {
 		return date;
-	}
-
-
-	public TraceSessionStepDetailsResult getDetails() {
-		return details;
-	}
-
-	public void setDetails(TraceSessionStepDetailsResult details) {
-		this.details = details;
 	}
 
 	public String getSourceCode() {
@@ -139,8 +118,6 @@ public class TraceSessionStepResult {
 	public void setDuration(double duration) {
 		this.duration = duration;
 	}
-
-
 
 	public Channel getChannel() {
 		return channel;

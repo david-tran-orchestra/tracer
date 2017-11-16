@@ -9,8 +9,8 @@
   
   	<modules>
   		<module>orchestra-tracer-dtos</module>
-<!-- 		<module>kafka-consumer</module> -->
-<!-- 		<module>kafka-producer</module> -->
+		<module>orchestra-tracer-microservice</module>
+		<module>orchestra-slog-feeder</module>
 		<module>tracer-back</module>
 	</modules>
 	

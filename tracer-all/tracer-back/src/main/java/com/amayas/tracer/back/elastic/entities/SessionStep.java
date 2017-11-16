@@ -2,11 +2,13 @@ package com.amayas.tracer.back.elastic.entities;
 
 import com.orchestra.tracer.dtos.Channel;
 import com.orchestra.tracer.dtos.ErrorData;
+import com.orchestra.tracer.dtos.enums.ErrorCodeEnum;
 import com.orchestra.tracer.dtos.enums.StatusEnum;
 import com.orchestra.tracer.dtos.enums.SubTypeEnum;
 import com.orchestra.tracer.dtos.enums.TechTransactionTypeEnum;
 import com.orchestra.tracer.dtos.enums.TransactionTypeEnum;
 import com.orchestra.tracer.dtos.enums.TypeEnum;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
@@ -15,7 +17,7 @@ import java.util.Date;
 /**
  * Entity for a Session Step.
  */
-@Document(indexName = "tracer", type = "sessionStep", createIndex = false)
+@Document(indexName = "tracer", type = "sessionStep", createIndex = true)
 public class SessionStep {
 
 	/** The entity id. */
@@ -91,15 +93,33 @@ public class SessionStep {
 
 	/** The error data. */
 	private ErrorData errorData;
-
-
+	
+	private String producerCode;
+	
+	private ErrorCodeEnum errorCode;
+	
 	//*************************************
 	//*        GETTERS/SETTERS            *
 	//*************************************
 
-
 	public String getId() {
 		return id;
+	}
+
+	public ErrorCodeEnum getErrorCode() {
+		return errorCode;
+	}
+
+	public void setErrorCode(ErrorCodeEnum errorCode) {
+		this.errorCode = errorCode;
+	}
+
+	public String getProducerCode() {
+		return producerCode;
+	}
+
+	public void setProducerCode(String producerCode) {
+		this.producerCode = producerCode;
 	}
 
 	public void setId(String id) {

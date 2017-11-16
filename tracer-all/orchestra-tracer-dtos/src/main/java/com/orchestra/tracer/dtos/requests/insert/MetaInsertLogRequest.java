@@ -18,9 +18,6 @@ public class MetaInsertLogRequest extends AbstractInsertLogRequest implements II
 	/** The timestamp of the log. */
 	private Long timeStamp;
 
-	/** The session id. */
-	private String sessionId;
-
 	/** The type enum. */
 	private TypeEnum type;
 
@@ -37,7 +34,7 @@ public class MetaInsertLogRequest extends AbstractInsertLogRequest implements II
 	private TransactionTypeEnum transactionType;
 
 	/** The technical transaction type. */
-	private TechTransactionTypeEnum techTransactionType;
+	private String techTransactionType;
 
 	/** The server instance. */
 	private String serverInstance;
@@ -84,6 +81,22 @@ public class MetaInsertLogRequest extends AbstractInsertLogRequest implements II
 	/** The error data. */
 	private ErrorData errorData;
 
+	/** The source code. */
+	private String sourceCode;
+
+
+	public void buildChannel(String pipeSeparatedChannelOrgUser) {
+		if(pipeSeparatedChannelOrgUser.contains("|")) {
+			String[] tab = pipeSeparatedChannelOrgUser.split("|");
+			if(tab != null && tab.length == 3) {
+				Channel channel = new Channel();
+				channel.setChannel(tab[0]);
+				channel.setOrganization(tab[1]);
+				channel.setUser(tab[2]);
+				setChannel(channel);
+			}
+		}
+	}
 
 	//*************************************
 	//*        GETTERS/SETTERS            *
@@ -96,14 +109,6 @@ public class MetaInsertLogRequest extends AbstractInsertLogRequest implements II
 
 	public void setTimeStamp(Long timeStamp) {
 		this.timeStamp = timeStamp;
-	}
-
-	public String getSessionId() {
-		return sessionId;
-	}
-
-	public void setSessionId(String sessionId) {
-		this.sessionId = sessionId;
 	}
 
 	public TypeEnum getType() {
@@ -146,11 +151,11 @@ public class MetaInsertLogRequest extends AbstractInsertLogRequest implements II
 		this.transactionType = transactionType;
 	}
 
-	public TechTransactionTypeEnum getTechTransactionType() {
+	public String getTechTransactionType() {
 		return techTransactionType;
 	}
 
-	public void setTechTransactionType(TechTransactionTypeEnum techTransactionType) {
+	public void setTechTransactionType(String techTransactionType) {
 		this.techTransactionType = techTransactionType;
 	}
 
@@ -272,5 +277,13 @@ public class MetaInsertLogRequest extends AbstractInsertLogRequest implements II
 
 	public void setErrorData(ErrorData errorData) {
 		this.errorData = errorData;
+	}
+
+	public String getSourceCode() {
+		return sourceCode;
+	}
+
+	public void setSourceCode(String sourceCode) {
+		this.sourceCode = sourceCode;
 	}
 }
