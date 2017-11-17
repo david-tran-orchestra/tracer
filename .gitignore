@@ -10,4 +10,8 @@ target/
 # eclipse project file
 .settings/
 .classpath
+<<<<<<< HEAD
 .project
+=======
+.project
+>>>>>>> 510581344415054656b2df459d881e846f514b39
